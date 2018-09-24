@@ -20,7 +20,7 @@ function timer(intDiff){
     $('#minute').html(minute);
     $('#second').html(second);
     intDiff--;
-    if (intDiff==0){
+    if (intDiff==-1){
        window.clearInterval(intval); 
        tijiao();
     }
@@ -168,13 +168,8 @@ $(function(){
         timu[index][6]=answer;
         $(selectid).css('background','green');
         // $('#questionstate').scrollTop(100);
-        // alert($(window).scrollTop());
         // alert($(document).height());
-        
-        // alert($('#question').height());
-        // alert($('#questionbtn').height());
         // $('#questionstate').height(684);
-        //alert($('#questionstate').width());
         // alert($('#questionstate').offset().top);
 
         if ( ($('#zidong').attr('value')==1) && index!=timu.length-1){
@@ -184,10 +179,10 @@ $(function(){
         }
     }); 
    
-  $(window).scroll(function(){
-    var winpos = $(window).scrollTop();
-    $('#questionbtn').css('margin-top',winpos);
-    $('#questionstate').css('margin-top',winpos);
-  }); 
+//   $(window).scroll(function(){
+//     var winpos = $(window).scrollTop();
+//     $('#questionbtn').css('margin-top',winpos);
+//     $('#questionstate').css('margin-top',winpos);
+//   }); 
     
 }); 

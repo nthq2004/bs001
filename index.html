@@ -15,7 +15,7 @@
  
   
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                    <!-- nav标签指明一个导航栏 -->
+                    <!-- nav标签指明一个导航栏，固定在顶部 -->
         <div class="container-fluid">
                         <!-- 所有的内容在div.container -->
             <div class="navbar-header">
@@ -26,7 +26,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 </button>
-            <!-- 用于后面的数据整合到这个按钮 -->
+            <!-- 用于后面的数据整合到这个按钮，这个按钮会跳到后面去 -->
                 <a href="#" class="navbar-brand" style="width: 200px">船舶电气</a>
             </div>
                         <!-- 第一个div.navbar-header内含一个a标签 -->
@@ -39,13 +39,8 @@
                         <!-- 第二个div标签含有一个无序列表 -->
 
             <div class="collapse navbar-collapse" id="example-navbar-collapse">
-                    <p class="navbar-text navbar-left" style="color:red;font-size:25px">
-                            <span id="hour"></span>
-                            <span>:</span>
-                            <span id="minute"></span>
-                            <span>:</span>
-                            <span id="second"></span>
-                    </p>
+
+                    <!-- div下可以包含p文本，也可包含ul无序列表 -->
                 <ul class="nav navbar-nav navbar-right">
  
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> 
@@ -61,24 +56,29 @@
 
     <div class="container-fluid">
             <div class="row clearfix">
+                <!-- <div>
+                    <button type="button" class="toggle" data-toggle="collapse"
+                        data-target="#questionstate">
+                        <span class="sr-only">面板切换</span>
+                        <span class="icon-bar"></span>
+                    </button> 
+                </div> -->
+                <!-- 以上可以实现面板收缩，右边的面板左移 -->
 
-                <div id="questionstate" class="col-md-2 column collapse">
-
-                </div>
                 <div id="question" class="col-md-8 column">
                     <div class="row clearfix">
                         <div class="col-md-12 column">
                             <p id="questioninfo">
-                                <span> <b>单选题（1分）</b> </span> 
-                                <span class="label label-default" style="display: inline-block">10101</span>
-                                <span style="display: inline-block"><b>1/100</b> </span>
-                            <button type="button" class="toggle" data-toggle="collapse"
-                                data-target="#questionstate">
-                                <span class="sr-only">切换导航</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>    
+                                <span style="display: inline-block;width:20%"> <b>单选1分</b> </span> 
+                                <span class="label label-default" style="display: inline-block;width:20%">10101</span>
+                                <span style="display: inline-block;width:20%"><b>1/100</b> </span>
+                                <span style="display: inline-block;color:red;font-size:25px">
+                                        <span id="hour"></span>
+                                        <span>:</span>
+                                        <span id="minute"></span>
+                                        <span>:</span>
+                                        <span id="second"></span>
+                                </span>   
                             </p>
                         </div>
                     </div>
@@ -102,12 +102,16 @@
                 </div>
                 <div id="questionbtn" class="col-md-2 column">
                      <br>
+                     <br>
                      <button type="button" id="attention" class="btn btn-default active btn-block btn-warning">标记</button>
                      <span style="display: block"><input type="checkbox" name="zidong" id="zidong" value=0>自动跳转到下一题</input></span>
                      <br>
                      <button type="button" id="prevtimu" class="btn btn-default active btn-block btn-success">上一题</button> 
                      <button type="button" id="nexttimu" class="btn btn-default btn-block active btn-success">下一题</button> 
                      <button type="button" id="submit" class="btn btn-default active btn-block btn-info">交卷</button>
+                </div>
+                <div id="questionstate" class="col-md-2 column">
+
                 </div>
             </div>
         </div>
