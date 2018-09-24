@@ -5,23 +5,27 @@ var fenshu = 0;
 
 function timer(intDiff){
     var intval =window.setInterval(function(){
+        // setInterval有两个参数，一个函数，然后是时间间隔
     var hour=0,
         minute=0,
         second=0;//时间默认值        
     if(intDiff > 0){
         hour = Math.floor(intDiff / (60 * 60));
+        // 调用javascript数学库Math.floor
         minute = Math.floor(intDiff / 60) -  (hour * 60);
         second = Math.floor(intDiff) -  (hour * 60 * 60) - (minute * 60);
     }
     if (hour < 10) hour = '0' + hour;
     if (minute < 10) minute = '0' + minute;
     if (second < 10) second = '0' + second;
+    // 字符串+数字
     $('#hour').html(hour);
     $('#minute').html(minute);
     $('#second').html(second);
     intDiff--;
     if (intDiff==-1){
        window.clearInterval(intval); 
+    //    setInterval返回一个ID，以此ID可以调用clearInterval
        tijiao();
     }
     }, 1000);
@@ -55,6 +59,7 @@ function settimu(index){
 
     var yourans = timu[index][6];
     $('input[type=radio][name=answer]').each(function(index,domEle){
+        // 标签+属性选择符
         if (domEle.value == yourans){
             domEle.checked=true;
         }
@@ -103,16 +108,17 @@ $(function(){
         var text = '';
         text += "<button class='btntimu btn btn-default' type='button' id='timu"+i+"'>"+i+"</button>";
         $('#questionstate').append(text);
+        // 添加的文本是html代码，可以动态添加元素，为每一个元素设置类
 
     }
     $('#questionstate').append("<button type='button' id='submit2' class='btn btn-default active btn-block btn-info'>交卷</button>");
-
-        
+    
+        // 为一组按钮添加时间，通过属性或文本获取index
     $('#questionstate').on('click','.btntimu',function(){
         index = parseInt(this.innerText);
         setstate(index);
         settimu(index);
-
+    // 可以为动态元素添加共同的响应函数，通过ID或者value或者innerText来区分
     });
         
     $('#attention').click(function(){
@@ -150,6 +156,8 @@ $(function(){
     $('#submit2').click(function(){
         tijiao();
     });
+    
+    // checkbox的点击事件
     $('#zidong').click(function(){
 
         if($('#zidong').attr('value')==0){
@@ -162,9 +170,11 @@ $(function(){
 
     });
 
+    // radio的change事件
     $('input[type=radio][name=answer]').change(function() {
         var answer=this.value;
         var selectid = "#timu"+index;
+        // 实现动态选择符
         timu[index][6]=answer;
         $(selectid).css('background','green');
         // $('#questionstate').scrollTop(100);
@@ -178,7 +188,7 @@ $(function(){
             settimu(index);           
         }
     }); 
-   
+//    窗口的滚动事件
 //   $(window).scroll(function(){
 //     var winpos = $(window).scrollTop();
 //     $('#questionbtn').css('margin-top',winpos);
