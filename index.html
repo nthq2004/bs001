@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-            </button>
+                </button>
             <!-- 用于后面的数据整合到这个按钮 -->
                 <a href="#" class="navbar-brand" style="width: 200px">船舶电气</a>
             </div>
@@ -61,7 +61,8 @@
 
     <div class="container-fluid">
             <div class="row clearfix">
-                <div id="questionstate" class="col-md-2 column">
+
+                <div id="questionstate" class="col-md-2 column collapse">
 
                 </div>
                 <div id="question" class="col-md-8 column">
@@ -69,8 +70,15 @@
                         <div class="col-md-12 column">
                             <p id="questioninfo">
                                 <span> <b>单选题（1分）</b> </span> 
-                                <span class="label label-default" style="text-align: right;display: inline-block">10101</span>
-                                <span style="text-align: right;display: inline-block"><b>1/100</b> </span>
+                                <span class="label label-default" style="display: inline-block">10101</span>
+                                <span style="display: inline-block"><b>1/100</b> </span>
+                            <button type="button" class="toggle" data-toggle="collapse"
+                                data-target="#questionstate">
+                                <span class="sr-only">切换导航</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>    
                             </p>
                         </div>
                     </div>
@@ -92,10 +100,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 column">
+                <div id="questionbtn" class="col-md-2 column">
                      <br>
                      <button type="button" id="attention" class="btn btn-default active btn-block btn-warning">标记</button>
-                     <br>
+                     <span style="display: block"><input type="checkbox" name="zidong" id="zidong" value=0>自动跳转到下一题</input></span>
                      <br>
                      <button type="button" id="prevtimu" class="btn btn-default active btn-block btn-success">上一题</button> 
                      <button type="button" id="nexttimu" class="btn btn-default btn-block active btn-success">下一题</button> 

@@ -6,3 +6,8 @@ body {
 #question {
     font-size: 25px;
 }
+
+#questionstate {
+    height:500px;
+    overflow-y: auto;
+}

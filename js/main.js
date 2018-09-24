@@ -1,4 +1,4 @@
-var intDiff = 10;//倒计时总秒数量
+var intDiff = 1800;//倒计时总秒数量
 var index = 1;
 var timu = [];
 var fenshu = 0;
@@ -84,13 +84,13 @@ $(function(){
     timer(intDiff);
 
     var i;
-    for (i=1;i<21;i++)
+    for (i=1;i<101;i++)
     {
-        var question = ""+i+"对手是发多少看见飞蛾，宋金佛额额放假哦饿，说了覅eos金佛饿哦金佛文件哦诉讼法就。"
-        var xa = "选项A"+i;
-        var xb = "选项B"+i;
-        var xc = "选项C"+i;
-        var xd = "选项D"+i;
+        var question = ""+i+"对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾，宋金佛额额放假哦饿，说了覅eos金佛饿哦金佛文件哦诉讼法就。"
+        var xa = "选项A对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾"+i;
+        var xb = "选项B对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾"+i;
+        var xc = "选项C对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾"+i;
+        var xd = "选项D对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾对手是发多少看见飞蛾"+i;
         timu[i]=[question,xa,xb,xc,xd,'C','',false];
     }
 
@@ -146,9 +146,20 @@ $(function(){
     $('#submit').click(function(){
         tijiao();
     });
-    
+
     $('#submit2').click(function(){
         tijiao();
+    });
+    $('#zidong').click(function(){
+
+        if($('#zidong').attr('value')==0){
+            $('#zidong').attr('value',1);
+        }
+        else
+        {
+            $('#zidong').attr('value',0);
+        }
+
     });
 
     $('input[type=radio][name=answer]').change(function() {
@@ -156,12 +167,27 @@ $(function(){
         var selectid = "#timu"+index;
         timu[index][6]=answer;
         $(selectid).css('background','green');
-        if (index!=timu.length-1){
+        // $('#questionstate').scrollTop(100);
+        // alert($(window).scrollTop());
+        // alert($(document).height());
+        
+        // alert($('#question').height());
+        // alert($('#questionbtn').height());
+        // $('#questionstate').height(684);
+        //alert($('#questionstate').width());
+        // alert($('#questionstate').offset().top);
+
+        if ( ($('#zidong').attr('value')==1) && index!=timu.length-1){
             index++;
             setstate(index);
             settimu(index);           
         }
     }); 
-    
+   
+  $(window).scroll(function(){
+    var winpos = $(window).scrollTop();
+    $('#questionbtn').css('margin-top',winpos);
+    $('#questionstate').css('margin-top',winpos);
+  }); 
     
 }); 
