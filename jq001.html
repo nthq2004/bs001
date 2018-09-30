@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <base target="_blank">
+</head>
+<body>
+    <p>第一次</p>
+    <script>
+
+        (function(){
+            jQuery=function(){
+                return new jQuery.fn.init()
+            };
+
+            jQuery.fn=jQuery.prototype={
+                info:function(){
+                    alert("hello");
+                },
+                init:function(){
+                    this.b=15;
+                }
+            };
+            jQuery.fn.init.prototype=jQuery.prototype;
+            // jQuery().info();
+        })();   
+    
+    </script>
+
+</body>
+</html>
